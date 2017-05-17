@@ -39,13 +39,14 @@ export default class MaterialSwitch extends React.Component {
     };
   }
 
-  getInitialState() {
-    var w = (this.props.switchWidth - Math.min(this.props.switchHeight, this.props.buttonRadius*2) - this.props.buttonOffset);
+  constructor(props){
+    super(props);
+    var w = (props.switchWidth - Math.min(props.switchHeight, props.buttonRadius*2) - props.buttonOffset);
 
-    return {
+    this.state = {
       width: w,
-      state: this.props.active,
-      position: new Animated.Value(this.props.active? w : this.props.buttonOffset),
+      state: props.active,
+      position: new Animated.Value(props.active? w : props.buttonOffset),
     };
   }
 
